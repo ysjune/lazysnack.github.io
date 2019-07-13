@@ -5,18 +5,15 @@
 - Mac : https://docs.docker.com/docker-for-mac/install/
 
 ### mariadb OR mysql 설치
-<pre>
-<code>
+<pre><code>
 # mysql
 $ docker run --name mysql-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=secure -d mysql
 
 # mariadb
 $ docker run --name maria-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=secure -d mariadb
-</code>
-</pre>
+</code></pre>
 
 ### mariadb 도커 컨테이너 실행
-
 <pre><code>
 docker container run -d -p 13306:3306     \
 -e MYSQL_ROOT_PASSWORD=root         \
@@ -36,10 +33,10 @@ mysql -u root -p
  
 # 도커로그 보기
 docker logs -f --tail=10 maria
-</pre></code>
+</code></pre>
 
 ### 컨데이너 접속했을 시 vi가 동작 안하면..
 <pre><code>
 apt-get update
 apt-get install vim
-</pre></code>
+</code></pre>
