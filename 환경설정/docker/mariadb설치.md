@@ -40,3 +40,7 @@ docker logs -f --tail=10 maria
 apt-get update
 apt-get install vim
 </code></pre>
+
+###127.0.0.1:3306 으로 접속이 안될 시 (포트 변경 방법알기 전까지 임시)
+-- https://stackoverflow.com/questions/46069446/unable-to-connect-to-mysql-container-with-sequel-pro-client
+
