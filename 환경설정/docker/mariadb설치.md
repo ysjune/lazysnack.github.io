@@ -26,4 +26,20 @@ docker container run -d -p 13306:3306     \
 
 볼륨 로컬에서 저장하는 건 처음에는 *-v `pwd`/wp_db:/var/lib/mysql \* 뭐 이런식으로 하려고 했는데 맥에서 진행하니 권한이니 뭐니 나와서 빠르게 포기  
 
-###
+### 컨테이너 접속
+<pre><code>
+# 도커에 있는 mysql 컨테이너 접근
+docker exec -it mariadb_local bash
+
+# 접속방법
+mysql -u root -p
+ 
+# 도커로그 보기
+docker logs -f --tail=10 maria
+</pre></code>
+
+### 컨데이너 접속했을 시 vi가 동작 안하면..
+<pre><code>
+apt-get update
+apt-get install vim
+</pre></code>
