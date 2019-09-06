@@ -6,8 +6,8 @@
 - Netflix 에서 개발함
 - <https://github.com/OpenFeign/feign>
 
-이라고 간단하게만,
-
+이라고 간단하게만,  
+<br>
 API 통신을 이용해서 개발할 필요가 생겼는데, API 를 통하여 개발해 본 적이 없기에  
 
 그래서 무작정 구글링 시작 
@@ -158,6 +158,9 @@ public class ServiceTest {
         ApiResponse<Data> ret = service.getList(req);
         assertEquals("200", ret.getCode());
         assertEquals("OK", ret.getMessage());
+    }
+    // 생략
+}
 ```
 
 Feign 설정 및 적용은 이렇게 해서 끝.  
