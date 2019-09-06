@@ -41,7 +41,7 @@ API 통신을 이용해서 개발할 필요가 생겼는데, API 를 통하여 �
 #### 2. Feign 인터페이스 작성  
 FeignClient Annotation이 있으나 깃 readme 에 있는 basic 방법을 사용.
 ```
-public interface AAClient {
+public interface AAAClient {
 
     @RequestLine("GET /list")
     ApiResponse<Data> getList(@QueryMap SearchRequest SearchRequest);
@@ -88,4 +88,77 @@ public class AAAClientConfig {
 
 #### 4. Service 생성
 
+```
+@Service
+public class BoardService {
 
+    private final AAAClient aAAClient;
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(BoardService.class);
+
+    @Autowired
+    public BoardService(AAAClient aAAClient) {
+        this.aAAClient = aAAClient;
+    }
+    
+    public ApiResponse<Data> getList(SurveySearchRequest vo) {
+        ApiResponse<Data> response;
+        try {
+            response = aAAClient.getList(vo);
+        } catch (FeignException ex) {
+            LOGGER.error("FeignException {}", ex);
+        }
+        return response;
+    }
+    // 생략
+}
+```
+
+#### 5. Test 코드 생성
+
+1. API 와 직접 통신할 필요는 없음
+2. 해당 서비스 로직이 정상적으로 작동하는지 여부만 확인
+
+```
+public class ServiceTest {
+
+    @Rule
+    public WireMockRule wireMockRule = new WireMockRule();    
+    @Rule
+    public MockitoRule rule = MockitoJUnit.rule();
+    private BoardServiceService service;
+    
+    @Before
+    public void setUp() {
+        AAAClient aAAClient = Feign.builder()
+                .client(new OkHttpClient())
+                .encoder(new JacksonEncoder())
+                .decoder(new JacksonDecoder())
+                .logger(new Slf4jLogger(SurveyClient.class))
+                .logLevel(Logger.Level.FULL)
+                .target(AAAClient.class, "http://localhost:8080");
+        service = new AAASurveyService(aAAClient);
+    }
+    
+    @Test
+    public void 목록_test() {
+        SearchRequest req = new SearchRequest();
+        req.setStart(0);
+        req.setLimit(10);
+        StubMapping accept = stubFor(
+                get(urlPathMatching("/list"))
+                        .withQueryParam("start", equalTo(req.getStart().toString()))
+                        .withQueryParam("limit", equalTo(req.getLimit().toString()))
+                        .willReturn(aResponse()
+                                .withStatus(200)
+                                .withHeader("content-type", "application/json")
+                                .withBody("{}")
+                        )
+        );
+        ApiResponse<Data> ret = service.getList(req);
+        assertEquals("200", ret.getCode());
+        assertEquals("OK", ret.getMessage());
+```
+
+Feign 설정 및 적용은 이렇게 해서 끝.  
+추후 컨트롤러를 통해 실제 API 와 연결되는지 테스트가 필요. (MockMvc 사용)  
