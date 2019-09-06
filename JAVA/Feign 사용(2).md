@@ -7,7 +7,7 @@ API 통신에서 서킷 브레이커를 적용해야 한다는 얘기를 들었�
 3. Netflix 의 Hystrix가 있음
 
 즉, 통신에 문제가 있을 때, pool 을 계속 점유하는 현상을 막기 위해, 차단기를 open 하여 격리한다고 생각하면 될 거 같다.  
-뭔가 개념적으로는 이해가 되면서도 헷갈리는 개념이랄까나.. (~~이해안됐다는 소리...?~~)
+뭔가 개념적으로는 이해가 되면서도 헷갈리는 개념이랄까나.. (~~이해안됐다는 소리...?~~)  
 여하튼 본론으로 들어가서 이전에 적용했던 Feign 에 서킷브레이커를 적용시켜보도록 함.  
 - [resilience4j-feign](https://github.com/resilience4j/resilience4j/tree/master/resilience4j-feign) 을 사용
 - [resilience4j-circuitbreaker docs](https://resilience4j.readme.io/docs/circuitbreaker) - 서킷브레이커 설명이 잘 나온거 같다.
@@ -179,5 +179,6 @@ public class CBTest {
 }
 ```
 
-- SoftAssertions은 각 assertThat 이 실패해도 검증을 계속 실행하고 마지막에 결과를 한꺼번에 보여줌 (마지막에 softly.assertAll() 추가)
+- SoftAssertions은 각 assertThat 이 실패해도 검증을 계속 실행하고 마지막에 결과를 한꺼번에 보여줌   
+   - (마지막에 softly.assertAll() 추가)
 - softly.assertAll() 을 사용하지 않을 경우에 대해선 [AssertJ](https://joel-costigliola.github.io/assertj/assertj-core-features-highlight.html#JUnitSoftAssertions) 의 Collect all errors with soft assertions 부분 참조
