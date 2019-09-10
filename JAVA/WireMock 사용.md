@@ -8,7 +8,7 @@
 
 #### 1. 의존성 추가
 - Maven 을 사용하므로 pom.xml 에 의존성 추가
-```
+```java
 <dependency>
     <groupId>com.github.tomakehurst</groupId>
     <artifactId>wiremock-jre8</artifactId>
@@ -19,7 +19,7 @@
 ```
 
 #### 2. 테스트 코드 작성
-```
+```java
 public class Test {
 
     @Rule
