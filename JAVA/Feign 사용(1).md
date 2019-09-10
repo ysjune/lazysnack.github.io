@@ -20,7 +20,7 @@ API 통신을 이용해서 개발할 필요가 생겼는데, API 를 통하여 �
 <br>
 #### 1. 의존성 추가
   - maven 을 사용하므로 pom.xml 에 의존성 추가
-```
+```java
     <dependency>
           <groupId>io.github.openfeign</groupId>
           <artifactId>feign-jackson</artifactId>
@@ -40,7 +40,7 @@ API 통신을 이용해서 개발할 필요가 생겼는데, API 를 통하여 �
 
 #### 2. Feign 인터페이스 작성  
 FeignClient Annotation이 있으나 깃 readme 에 있는 basic 방법을 사용.
-```
+```java
 public interface AAAClient {
 
     @RequestLine("GET /list")
@@ -64,7 +64,7 @@ public interface AAAClient {
     
 #### 3. ClientConfig 작성
 2에서 만든 인터페이스에 대해 config 작성
-```
+```java
 @Configuration
 public class AAAClientConfig {
     @Value("${url}")
@@ -88,7 +88,7 @@ public class AAAClientConfig {
 
 #### 4. Service 생성
 
-```
+```java
 @Service
 public class BoardService {
 
@@ -119,7 +119,7 @@ public class BoardService {
 1. API 와 직접 통신할 필요는 없음
 2. 해당 서비스 로직이 정상적으로 작동하는지 여부만 확인
 
-```
+```java
 public class ServiceTest {
 
     @Rule
