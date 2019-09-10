@@ -14,7 +14,7 @@ API 통신에서 서킷 브레이커를 적용해야 한다는 얘기를 들었�
 
 #### 1. 의존성 추가
 이전과 같이 maven 을 사용하므로 pom.xml 에 추가해줌.
-```
+```java
         <dependency>
             <groupId>io.github.resilience4j</groupId>
             <artifactId>resilience4j-feign</artifactId>
@@ -29,7 +29,7 @@ API 통신에서 서킷 브레이커를 적용해야 한다는 얘기를 들었�
 
 #### 2. Config Decorating
 1. (1)에서 작성한 [AAAClientConfig](https://github.com/ysjune/study/blob/master/JAVA/Feign%20%EC%82%AC%EC%9A%A9(1).md) 를 변경
-```
+```java
     @Configuration
     public class AAAClientConfig {
     
@@ -67,7 +67,7 @@ API 통신에서 서킷 브레이커를 적용해야 한다는 얘기를 들었�
 1. 정상적인 경우
 2. 일부러 실패를 했을 때의 서킷브레이커 open close 확인
 
-```
+```java
 public class CBTest {
     @Rule
     public WireMockRule wireMockRule = new WireMockRule();
