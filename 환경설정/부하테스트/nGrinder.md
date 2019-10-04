@@ -50,15 +50,17 @@
 ***
 #### 1. 로그인  
 
-<img src="https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/ngrinder_main.PNG" width="500px" height="500px"></img>
+![ngrinder_main](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/ngrinder_main.PNG)
 
  - admin/admin 으로 로그인
+
 ***
 #### 2. 메인 화면
 
 ![ngrinder_main2](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/ngrinder_main2.PNG)
 
  - URL 을 입력하여 바로 테스트를 진행할 수 있음
+
 ***
 #### 3. 스크립트
 
@@ -66,11 +68,14 @@
 
  - 스크립트 목록이 나오며 `Create a script` 로 스크립트를 작성할 수 있음
 
+
 ![script_detail](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/script_detail.PNG)
+
 
 - Sample.groovy 파일을 만들어서 스크립트 작성
 - 스크립트 파일은 Groovy 와 Jython, Groovy Maven Project 3가지 형태로 작성 가능
 - 작성 샘플 파일은 [Script Collection](https://github.com/naver/ngrinder/wiki/Script-Collection) 참조
+
 ***
 #### 4. 테스트 작성
 
@@ -90,30 +95,35 @@
     * Run Count : 테스트를 몇 번 진행할 것인지 (Ex. Run Count : 2, Vuser : 6, agent : 2 -> 2*6*2 = 24)
   + Enabled Ramp-Up
     * 스레드 혹은 프로세스 수를 점진적으로 증가시키고 싶을 경우 사용
-  
+
 
 ![script_detail_sample2](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/script_detail(sample2).PNG)
 
-- 테스트를 시작할 때 바로 시작하거나 스케쥴을 지정해서 시작할 수 있음
+- 테스트를 시작할 때 바로 시작하거나 스케쥴을 지정해서 시작할 수 있음  
+
 ***
 #### 5. 테스트 진행
 
 ![performance_detail_ing](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/performance_detail(ing).PNG)
 
 
-- 테스트 진행 중
+- 테스트 진행 중  
+
 
 ![script_detail_sample3](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/script_detail(sample3).PNG)
 
 
 - 테스트 완료 후
 - Detail Repoprt 를 통해 상세 리포트를 보거나 코멘트를 남길 수 있음
+
 ***
 #### 6. 테스트 리포트
 
 ![script_report](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/script_report.PNG)
 
 ![script_report2](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/script_report2.PNG)
-
+<br/>
+<br/>
 - 테스트 리포트를 통해 상세한 내용을 볼 수 있으며, CSV 파일로 다운 받을 수도 있음
+
 
