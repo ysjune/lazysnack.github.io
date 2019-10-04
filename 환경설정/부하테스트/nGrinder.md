@@ -2,13 +2,13 @@
 - Stress Test Platform
 - 테스트 스크립트 작성, 테스트 실행, 대상 서버 모니터링 및 결과 작성
 - [nGrinder](https://github.com/naver/ngrinder)
-
+***
 ### nGrinder 구조
 
 ![controller architecture](https://raw.githubusercontent.com/wiki/naver/ngrinder/assets/Architecture-29bb2.png)
 - Controller : 테스팅을 위한 인터페이스 제공 (스크립트 작성 및 수정, 테스트 코디네이트)
 - Agent : 타겟 서버에 부하를 가함 (프로세스, 스레드)
-
+***
 ### 설치 방법 (1/2 컨트롤러 설치)
 - [nGrinder Controller 파일](https://github.com/naver/ngrinder/releases)
 - Tomcat 을 이용한 로컬 설치 방법
@@ -20,8 +20,8 @@
   * 톰캣 실행 (startup.sh 혹은 startup.bat)
   * 브라우저 실행 (http://localhost:8080/ngrinder-controller-X.X)
     + (ROOT.war 로 한 경우 http://localhost:8080)      
-<br>
 
+***
 ### 설치 방법 (2/2 에이전트 설치)
 - 실행방법의 `1. 로그인 ` 을 진행 후, `2. 메인 화면` 에서 진행
 
@@ -35,31 +35,32 @@
 
 - 하나의 Agent 에서 Multi Agent 를 실행할 경우
   * Controller 는 Ip 와 Host Id 의 조합으로 에이전트를 판별함
-   > 1. 각각 다른 곳에 설치
-      > * 1st : ~/apps/ngrinder_agent_1
-      > * 2nd : ~/apps/ngrinder_agent_2
-   > 2. host 이름을 변경하여 각 에이전트 사용 (커멘트 라인 사용)
-      > * 1st : cd ~/apps/ngrinder_agent-1; ./run_agent.sh --agent-home ~/.ngrinde-agent-1 --host-id first-agent
-      > * 2nd : cd ~/apps/ngrinder_agent-1; ./run_agent.sh --agent-home ~/.ngrinde-agent-2 --host-id second-agent
+    1. 각각 다른 곳에 설치
+       + 1st : ~/apps/ngrinder_agent_1
+       + 2nd : ~/apps/ngrinder_agent_2
+    2. host 이름을 변경하여 각 에이전트 사용 (커멘트 라인 사용)
+       + 1st : cd ~/apps/ngrinder_agent-1; ./run_agent.sh --agent-home ~/.ngrinde-agent-1 --host-id first-agent
+       + 2nd : cd ~/apps/ngrinder_agent-1; ./run_agent.sh --agent-home ~/.ngrinde-agent-2 --host-id second-agent
 
-
+***
 ### Docker 를 이용한 가상 설치 방법 (추후 작성 예정)  
-<br><br>
+***
+</br></br>
 ### 실행 방법  
-<br>
+***
 #### 1. 로그인  
 
 <img src="https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/ngrinder_main.PNG" width="500px" height="500px"></img>
 
  - admin/admin 으로 로그인
-
+***
 #### 2. 메인 화면
 
 ![ngrinder_main2](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/ngrinder_main2.PNG)
 
  - URL 을 입력하여 바로 테스트를 진행할 수 있음
-
-3. 스크립트
+***
+#### 3. 스크립트
 
 ![script_list](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/script_list.PNG)
 
@@ -70,8 +71,8 @@
 - Sample.groovy 파일을 만들어서 스크립트 작성
 - 스크립트 파일은 Groovy 와 Jython, Groovy Maven Project 3가지 형태로 작성 가능
 - 작성 샘플 파일은 [Script Collection](https://github.com/naver/ngrinder/wiki/Script-Collection) 참조
-
-4. 테스트 작성
+***
+#### 4. 테스트 작성
 
 ![performance_list](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/performance_list.PNG)
 
@@ -94,8 +95,8 @@
 ![script_detail_sample2](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/script_detail(sample2).PNG)
 
 - 테스트를 시작할 때 바로 시작하거나 스케쥴을 지정해서 시작할 수 있음
-
-5. 테스트 진행
+***
+#### 5. 테스트 진행
 
 ![performance_detail_ing](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/performance_detail(ing).PNG)
 
@@ -107,8 +108,8 @@
 
 - 테스트 완료 후
 - Detail Repoprt 를 통해 상세 리포트를 보거나 코멘트를 남길 수 있음
-
-6. 테스트 리포트
+***
+#### 6. 테스트 리포트
 
 ![script_report](https://github.com/ysjune/study/blob/master/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8/resources/script_report.PNG)
 
