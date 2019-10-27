@@ -6,4 +6,4 @@
 
 ### 목차
 - Chatper 1. 자바스크립트란 무엇인가
-- Chapter 2. HTML 속의 자바스크립트
+- [Chapter 2. HTML 속의 자바스크립트](JavaScript/Chaper2/HTML속의 자바스크립트.md)
