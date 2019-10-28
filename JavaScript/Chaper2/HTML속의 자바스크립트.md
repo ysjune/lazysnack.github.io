@@ -21,7 +21,7 @@
       <script src="example.js"></script>
       ```
 6. type
-    - language 대체, 콘텐츠 타입(마임 타입) 지정
+    - language 대체, 콘텐츠 타입([마임 타입](https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/MIME_types)) 지정
     - application/javascript, text/javascript(생략가능, default값)
     - ```javascript
         <script type="text/javascript">
