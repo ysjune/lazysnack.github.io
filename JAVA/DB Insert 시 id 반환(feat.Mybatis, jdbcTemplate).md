@@ -1,0 +1,80 @@
+## DB Insert 시 자동생성된 id 를 알아내기
+
+### 1.Mybatis
+
+```xml
+<insert id="insertStudent" parameterType="studentDto" useGeneratedKeys="true" keyProperty="id">
+INSERT INTO student (
+  name,
+  grade, 
+  phone
+)
+VALUES (
+	 #{name}, 
+	 #{grade}, 
+	 #{phone}
+)
+```
+  
+사용하는 데이터베이스가 Auto Increment 가 된다면 (e.g. MySQL, Maria) 다음을 통해 id 를 알아낼 수 있다.
+  
+```java
+StudentDTO student = StudentDTO.builer().
+        .name("snack")
+        .grade(1)
+        .phone(01011112222)
+        .build();
+
+mapper.insertStudent(student);
+
+student.getId() // get ID
+```
+
+### 2. KeyHolder 를 사용한 방법
+
+MyBatis 를 사용하지 않고, jdbcTemplate 를 사용하는 경우로,  
+이번 작성을 하게 만든 주인공이다. jdbcTemplate 을 사용한 경험이 거의 없기에, insert 후 pk id 를 어떻게 불러올까 했는데, 이런 방법이 있었다.  
+~~(알았어도, 학부 이후로 jdbcTemplate를 사용한 적이 없기에 까먹었을 수도..)~~
+
+```java
+
+public Long saveStudent(final StudentDTO studnet) {
+	KeyHolder keyHolder = new GeneratedKeyHolder();
+	jdbcTemplate.update(new PreparedStatementCreator() {
+	    @Override
+        public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+			PreparedStatement pstmt = conn.prepareStatement(
+				"INSERT INTO student (name, grade, phone) VALUES (?, ?, ?)", new String[] {"id"});
+			pstmt.setString(1, student.getName());
+			pstmt.setInt(2, student.getGrade());
+			pstmt.setString(3, student.getPhone());
+			
+			return pstmt;
+		}
+	}, keyHolder);
+	student.setId(keyHolder.getKey().longValue());
+	return student.getId();
+}
+```
+
+다음과 같이 하면 생성된 student 의 id 를 알 수 있다.  
+(필자는 delete 와 update 에 대한 테스트 코드를 짜는데 id 가 필요했었다.)
+
+덧붙여서 람다를 사용하면,
+
+```java
+
+public Long saveStudent(final StudentDTO studnet) {
+	KeyHolder keyHolder = new GeneratedKeyHolder();
+	jdbcTemplate.update(conn -> {
+			PreparedStatement pstmt = conn.prepareStatement(
+				"INSERT INTO student (name, grade, phone) VALUES (?, ?, ?)", new String[] {"id"});
+	...
+	...
+	}, keyHolder);
+	student.setId(keyHolder.getKey().longValue());
+	return student.getId();
+}
+```
+
+같이 표현할 수 있다.
