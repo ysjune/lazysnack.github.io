@@ -112,4 +112,4 @@ public class StudentDaoImpl implements StudentDao {
 ```
 
 이름만큼 insert 에 최적화 되어 있는 것 같다. 특히 타입을 Object 로 받기 때문에 타입을 크게 타지 않는 것 같다.  
-(이전 PreparedStatement 를 사용할 때는 LocalDateTime 값에 대해 timestamp 값으로 변경해서 넣어줘야 했는데, 이건 안해도 잘 들어간다.)
+(이전 PreparedStatement 를 사용할 때는 시간 값에 대해 timestamp 값으로 변경해서 넣어줘야 했는데, 이건 안해도 잘 들어간다.)
